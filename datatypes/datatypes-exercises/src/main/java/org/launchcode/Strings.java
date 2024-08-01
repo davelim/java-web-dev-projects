@@ -9,19 +9,25 @@ public class Strings {
         Scanner input = new Scanner(System.in);
         System.out.println("Provide search term:");
         String searchTerm = input.nextLine();
+
         if (searchTerm.length() > ALICE.length()) {
             System.out.println("Could not find '" + searchTerm +"'.");
+            return;
         }
 
         int idx = ALICE.toLowerCase().indexOf(searchTerm.toLowerCase());
         if (idx == -1) {
             System.out.println("Could not find '" + searchTerm + "'.");
-        } else {
-            int begin = idx - X < 0 ? 0 : idx - X;
-            int end = idx + searchTerm.length() + X > ALICE.length()
-                    ? ALICE.length() - 1
-                    : idx + searchTerm.length() + X;
-            System.out.println("Found '" + searchTerm + "'... " + ALICE.substring(begin, end));
+            return;
         }
+
+        int begin = idx - X < 0 ? 0 : idx - X;
+        int end = idx + searchTerm.length() + X >= ALICE.length()
+                ? ALICE.length() - 1
+                : idx + searchTerm.length() + X;
+        System.out.println("Found '" + searchTerm + "' at "
+                + idx + "..." + ALICE.substring(begin, end));
+        System.out.println("After search term removed...");
+        System.out.println(ALICE.substring(0, idx) + ALICE.substring(idx+searchTerm.length()));
     }
 }
