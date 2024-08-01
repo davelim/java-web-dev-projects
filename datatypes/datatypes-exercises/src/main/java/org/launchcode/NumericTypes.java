@@ -10,5 +10,6 @@ public class NumericTypes {
         System.out.println("Provide width:");
         int width = input.nextInt();
         System.out.println("Area of " + length + " x " + width + " rectangle: " + (length * width));
+        input.close();
     }
 }

@@ -9,6 +9,7 @@ public class Strings {
         Scanner input = new Scanner(System.in);
         System.out.println("Provide search term:");
         String searchTerm = input.nextLine();
+        input.close();
 
         if (searchTerm.length() > ALICE.length()) {
             System.out.println("Could not find '" + searchTerm +"'.");

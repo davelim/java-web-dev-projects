@@ -10,5 +10,6 @@ public class NumericTypes2 {
         System.out.println("Provide gallons consumed:");
         float gallon = input.nextFloat();
         System.out.println("Miles-per-gallon: " + (miles / gallon));
+        input.close();
     }
 }
